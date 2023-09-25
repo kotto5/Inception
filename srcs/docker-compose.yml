@@ -1,7 +1,10 @@
 version: "3"
 services:
   nginx:
-    image: nginx:latest
+    # image: nginx:latest
+    build:
+      context: .
+      dockerfile: ./
     container_name: nginx
     ports:
       - "80:80"
