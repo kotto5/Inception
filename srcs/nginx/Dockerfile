@@ -12,6 +12,7 @@ RUN apk add bash
 # nginxのログファイルのシンボリックリンクをstdoutとstderrに作成
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
+COPY ./conf/nginx.conf /etc/nginx/nginx.conf
 
 # nginxを実行
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]  
