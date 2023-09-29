@@ -5,3 +5,5 @@ all:
 
 d:
 	docker-compose -f $(TARGETS) down
+
+re: d all
