@@ -4,6 +4,7 @@ services:
     build:
       context: ./nginx
       dockerfile: .
+    image: _nginx
     container_name: nginx
     ports:
       - "443:443"
@@ -14,7 +15,7 @@ services:
     build:
       context: ./mariadb
       dockerfile: .
-    image: db
+    image: _db
     container_name: db
     restart: always
     environment:
