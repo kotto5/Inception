@@ -1,0 +1,33 @@
+version: "3"
+services:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: .
+    image: _nginx
+    container_name: nginx
+    ports:
+      - "443:443"
+    volumes:
+      - ./nginx/tools/html:/usr/share/nginx/html
+  
+  db:
+    build:
+      context: ./mariadb
+      dockerfile: .
+    image: _db
+    container_name: db
+    restart: always
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_CHARSET=${MYSQL_CHARSET}
+      - MYSQL_COLLATION=${MYSQL_COLLATION}
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/conf:/etc/mysql/conf.d
+      - ./mysql/logs:/logs
