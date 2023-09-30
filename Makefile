@@ -1,4 +1,4 @@
-TARGETS := ./srcs/docker-compose.yml
+TARGETS := ./srcs/compose.yml
 
 all:
 	docker-compose -f $(TARGETS) up -d
