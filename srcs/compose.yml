@@ -9,4 +9,25 @@ services:
     ports:
       - "2525:443"
     volumes:
-      - ./nginx/tools/html:/usr/share/nginx/html
+      - wordpress_sites:/var/www/html
+    depends_on:
+      - wordpress
+    networks:
+      - frontend
+
+  wordpress:
+    image: wordpress:6.4.2-php8.1-fpm
+    restart: always
+    ports:
+      - 9000:80
+    volumes:
+      - wordpress_sites:/var/www/html
+    networks:
+      - frontend
+
+volumes:
+  wordpress_sites:
+
+networks:
+  frontend:
+    driver: bridge
