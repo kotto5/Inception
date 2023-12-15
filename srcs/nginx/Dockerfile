@@ -16,6 +16,7 @@ RUN apk update \
         -key /etc/nginx/secret.key -out /etc/nginx/secret.crt
 
 COPY ./conf/nginx.conf /etc/nginx/nginx.conf
+COPY ./tools/html /usr/share/nginx/html
 
 # nginxを実行
 CMD ["nginx", "-g", "daemon off;"]
