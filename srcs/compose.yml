@@ -14,7 +14,6 @@ services:
       - wordpress
     networks:
       - frontend
-
   wordpress:
     image: wordpress:6.4.2-php8.1-fpm
     restart: always
@@ -24,10 +23,34 @@ services:
       - wordpress_sites:/var/www/html
     networks:
       - frontend
+      - backend
+    environment:
+      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_USER=wordpress
+      - WORDPRESS_DB_PASSWORD=wordpress
+      - WORDPRESS_DB_NAME=wordpress
+      - WORDPRESS_TABLE_PREFIX=wp_
+  db:
+    image: mariadb:10.6.5
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - backend
 
 volumes:
   wordpress_sites:
+  db_data:
 
 networks:
   frontend:
+    driver: bridge
+  backend:
     driver: bridge
