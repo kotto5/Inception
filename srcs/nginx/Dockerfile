@@ -15,8 +15,7 @@ RUN apk update \
         -subj "/C=JP/ST=Tokyo/L=Tokyo/O=42tokyo/OU=student/CN=kakiba.web/emailAddress=kakiba@student.42tokyo.jp"\
         -key /etc/nginx/secret.key -out /etc/nginx/secret.crt
 
-COPY ./conf/nginx.conf /etc/nginx/nginx.conf
-COPY ./tools/html /usr/share/nginx/html
+COPY ./conf /etc/nginx/
 
 # nginxを実行
 CMD ["nginx", "-g", "daemon off;"]
