@@ -6,4 +6,8 @@ all:
 d:
 	docker-compose -f $(TARGETS) down
 
+clean: d
+	docker-compose -f $(TARGETS) down --rmi all
+	docker volume prune -f 
+
 re: d all
