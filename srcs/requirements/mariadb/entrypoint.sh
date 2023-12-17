@@ -14,7 +14,4 @@ if [ ! -d "${MYSQL_DATA_PATH}/mysql" ]; then
     rc-service mariadb stop
 fi
 
-echo "CREATE USER '$DB_USER'@'$' IDENTIFIED BY '$DB_PASS';" > create_user_sql
-cat create_user_sql | mariadb
-
 exec mysqld --datadir=/var/lib/mysql --user=mysql
