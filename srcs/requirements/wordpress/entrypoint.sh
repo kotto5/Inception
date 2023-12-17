@@ -1,9 +1,11 @@
 #!/bin/sh +x
+
+wp core download --path=$WP_DATA_PATH --allow-root
 wp config create \
 	--path=$WP_DATA_PATH \
 	--dbname=$DB_NAME \
 	--dbuser=$DB_USER \
-	--dbpass=$DB_PASSWORD \
+	--dbpass=$DB_PASS \
 	--dbhost=$DB_HOST
 wp core install \
 	--path=$WP_DATA_PATH \
