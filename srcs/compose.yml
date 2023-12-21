@@ -7,7 +7,7 @@ services:
     image: inception_nginx_dayo
     container_name: nginx
     ports:
-      - "2525:443"
+      - "${OPEN_PORT}:443"
     volumes:
       - wordpress_sites:/var/www/html
     depends_on:
@@ -45,6 +45,7 @@ services:
       WP_EDITOR_USER: ${WP_EDITOR_USER}
       WP_EDITOR_PASSWORD: ${WP_EDITOR_PASSWORD}
       WP_EDITOR_EMAIL: ${WP_EDITOR_EMAIL}
+      WP_DEBUG: ${WP_DEBUG}
     healthcheck:
       test: curl http://localhost:9000 > /dev/null 2>&1 ; expr $? = 56
       # curl(56) は connection reset by peer. それ以前は 7 で、接続エラー.
