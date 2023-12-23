@@ -1,4 +1,4 @@
-FROM alpine:3.19
+FROM alpine:3.18
 
 RUN apk add mysql mysql-client openrc vim bash \
     && mkdir -p /run/openrc \

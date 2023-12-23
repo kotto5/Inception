@@ -1,5 +1,5 @@
 # ベースイメージとしてAlpineを使用
-FROM alpine:3.19
+FROM alpine:3.18
 
 # nginxをインストール
 RUN apk update \

@@ -1,4 +1,4 @@
-FROM alpine:3.19
+FROM alpine:3.18
 
 RUN apk add --update --no-cache php81 php81-fpm php81-mysqli php81-phar php81-iconv mariadb-client curl vim
 
