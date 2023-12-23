@@ -1,7 +1,7 @@
 TARGETS := ./srcs/compose.yml
-VOLUME_DIR := ./data
-VOLUME_DIR_WP := ./data/wordpress
-VOLUME_DIR_DB := ./data/mariadb
+VOLUME_DIR := /home/${USER}/data
+VOLUME_DIR_WP := $(VOLUME_DIR)/wordpress
+VOLUME_DIR_DB := $(VOLUME_DIR)/mariadb
 
 all:
 	mkdir -p $(VOLUME_DIR_WP) $(VOLUME_DIR_DB)
