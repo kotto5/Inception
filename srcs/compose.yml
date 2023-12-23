@@ -4,8 +4,7 @@ services:
     build:
       context: ./requirements/nginx
       dockerfile: ./Dockerfile
-    image: inception_nginx_dayo
-    container_name: nginx
+    image: nginx
     ports:
       - "${OPEN_PORT}:443"
     volumes:
@@ -19,7 +18,7 @@ services:
     build:
       context: ./requirements/wordpress
       dockerfile: ./Dockerfile
-    image: inception_wordpress_dayo
+    image: wordpress
     restart: always
     volumes:
       - wordpress_sites:/var/www/html
@@ -56,7 +55,7 @@ services:
     build:
       context: ./requirements/mariadb
       dockerfile: ./Dockerfile
-    image: inception_mariadb_dayo
+    image: mariadb
     restart: always
     environment:
       DB_NAME: ${MYSQL_DATABASE}
