@@ -2,6 +2,9 @@
 
 # if $DATADIR/mysql not exist, initialize database
 if [ ! -d "${DB_DATA_PATH}/mysql" ]; then
+    echo "==================================="
+    echo "======= mysql setup start ========="
+    echo "==================================="
 	rc-service mariadb setup
     rc-service mariadb start
 
