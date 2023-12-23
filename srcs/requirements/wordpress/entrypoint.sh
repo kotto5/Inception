@@ -1,8 +1,7 @@
 #!/bin/sh +x
 
-wp core download --path=$WP_DATA_PATH --allow-root
-
-if [ ! -d "./wp-config.php" ]; then
+if [ ! -e "$WP_DATA_PATH/wp-config.php" ]; then
+	wp core download --path=$WP_DATA_PATH --allow-root
 	echo "define( 'WP_DEBUG', true );" >> /tmp/.testphp && \
 	echo "define( 'WP_DEBUG_LOG', true );" >> /tmp/.testphp && \
 	wp config create \
