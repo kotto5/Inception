@@ -1,7 +1,7 @@
 #!/bin/sh -x
 
 # if $DATADIR/mysql not exist, initialize database
-if [ ! -d "${MYSQL_DATA_PATH}/mysql" ]; then
+if [ ! -d "${DB_DATA_PATH}/mysql" ]; then
 	rc-service mariadb setup
     rc-service mariadb start
 

@@ -62,6 +62,7 @@ services:
       DB_NAME: ${MYSQL_DATABASE}
       DB_USER: ${MYSQL_USER}
       DB_PASS: ${MYSQL_PASSWORD}
+      DB_DATA_PATH: /var/lib/mysql
     volumes:
       - db_data:/var/lib/mysql
     networks:
