@@ -45,7 +45,7 @@ services:
       WP_EDITOR_EMAIL: ${WP_EDITOR_EMAIL}
       WP_DEBUG: ${WP_DEBUG}
     healthcheck:
-      test: ["CMD-SHELL", "curl http://localhost:9000 > /dev/null 2>&1 ; expr $? = 56"]
+      test: ["CMD-SHELL", "curl http://localhost:9000 > /dev/null 2>&1 ; expr $$? = 56"]
       # curl(56) は connection reset by peer. それ以前は 7 で、接続エラー.
       # fastcgi なので http通信は出来ない. reset されることでサーバーの起動を確認する
       # fastcgi server にリクエストを送るコマンドがあれば採用したい
