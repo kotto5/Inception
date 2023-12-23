@@ -14,6 +14,6 @@ clean: d
 	docker-compose -f $(TARGETS) down --rmi all --volumes
 
 fclean: clean
-	rm -rf $(VOLUME_DIR)/*
+	sudo rm -rf $(VOLUME_DIR)/*
 
 re: clean all
