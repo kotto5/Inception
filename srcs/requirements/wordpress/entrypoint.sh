@@ -1,6 +1,10 @@
 #!/bin/sh +x
 
 if [ ! -e "$WP_DATA_PATH/wp-config.php" ]; then
+	echo "==================================="
+    echo "======== wp setup start ==========="
+    echo "==================================="
+
 	wp core download --path=$WP_DATA_PATH --allow-root
 	echo "define( 'WP_DEBUG', true );" >> /tmp/.testphp && \
 	echo "define( 'WP_DEBUG_LOG', true );" >> /tmp/.testphp && \
